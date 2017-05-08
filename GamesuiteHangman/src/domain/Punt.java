@@ -21,7 +21,7 @@ public void setY(int y) {
 }
 @Override
 public String toString() {
-	return "Punt [x=" + x + ", y=" + y + "]";
+	return "(" + getX() + "," + getY() + ")";
 }
 
 }
