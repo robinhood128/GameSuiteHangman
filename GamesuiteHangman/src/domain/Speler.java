@@ -7,8 +7,15 @@ public class Speler
 	
 	public Speler(String naam)
 	{
-		this.naam = naam;
+		setNaam(naam);
 		score = 0;
+	}
+	
+	private void setNaam(String naam)
+	{
+		if (naam == null || naam.trim().isEmpty())
+			throw new DomainException("Slechte spelersnaam.");
+		this.naam = naam;
 	}
 	
 	public String getNaam()
@@ -23,6 +30,8 @@ public class Speler
 	
 	public void addToScore(int score)
 	{
+		if (this.score + score < 0)
+			throw new DomainException("Score moet positief blijven.");
 		this.score += score;
 	}
 	
@@ -31,6 +40,9 @@ public class Speler
 		if(!(object instanceof Speler))
 			return false;
 		else
-			return ((Speler)object).naam == naam;
+		{
+			Speler o = (Speler)object;
+			return o.naam == naam && o.score == score;
+		}
 	}
 }
