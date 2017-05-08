@@ -19,9 +19,10 @@ public int getY() {
 public void setY(int y) {
 	this.y = y;
 }
+
 @Override
 public String toString() {
-	return "Punt [x=" + x + ", y=" + y + "]";
+	return "(" + getX() + "," + getY() + ")";
 }
 
 }
