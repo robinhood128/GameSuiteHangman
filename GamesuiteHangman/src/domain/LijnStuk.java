@@ -1,13 +1,11 @@
 package domain;
 
-public class LijnStuk {
+public class Lijnstuk extends Vorm{
 	
-	private int xstart, ystart, xeind, yeind;
+	private Punt startPunt;
+	private Punt eindPunt;
 	
-	Punt startPunt = new Punt(xstart, ystart);
-	Punt eindPunt = new Punt(xeind, yeind);
-	
-	public LijnStuk(Punt startPunt, Punt eindPunt) {
+	public Lijnstuk(Punt startPunt, Punt eindPunt) {
 		
 		setStartEnEindPunt(startPunt, eindPunt);
 		
@@ -35,19 +33,17 @@ public class LijnStuk {
 	
 	public boolean equals(Object object) {
 		
-		if(!(object instanceof LijnStuk)) {
+		if(!(object instanceof Lijnstuk)) {
 			return false;
 		} else {
-			LijnStuk o = (LijnStuk)object;
+			Lijnstuk o = (Lijnstuk)object;
+			return o.startPunt.equals(startPunt) && o.eindPunt.equals(eindPunt);
 		}
-		
-		return false;
-		
 	}
 	
 	@Override
 	public String toString() {
-		return "Lijn: startpunt: (" + getStartPunt().getX() +", " + getStartPunt().getY() + ") - eindpunt: (" + getEindPunt().getX() +", " + getEindPunt().getY() + ")";
+		return "Lijn: startpunt: " + startPunt.toString() + " - eindpunt: " + eindPunt.toString();
 	}
 	
 }
