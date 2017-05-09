@@ -62,5 +62,12 @@ public class CirkelTest {
 		assertFalse(een.equals(twee));
 	}
 	
+	@Test
+	public void testGetOmhullende_geeft_correcte_Omhullende(){
+		Cirkel een = new Cirkel(new Punt(10,10),5);
+		Punt linkerbovenhoek = new Punt(5,5);
+		Omhullende test = new Omhullende(linkerbovenhoek,10,10);
+		assertTrue(test.equals(een.getOmhullende()));
+	}
 
 }

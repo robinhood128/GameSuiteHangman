@@ -67,8 +67,8 @@ public class Driehoek extends Vorm
 		int x2 = getHoekPunt2().getX();
 		int x3 = getHoekPunt3().getX();
 		int y1= getHoekPunt1().getY();
-		int y2 = getHoekPunt1().getY();
-		int y3 = getHoekPunt1().getY();
+		int y2 = getHoekPunt2().getY();
+		int y3 = getHoekPunt3().getY();
 	    int minx = Math.min(Math.min(x1, x2), x3);
 	    int miny = Math.min(Math.min(y1, y2), y3);
 	    int maxx = Math.max(Math.max(x1, x2), x3);
