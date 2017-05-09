@@ -43,7 +43,7 @@ public class Lijnstuk extends Vorm{
 	
 	@Override
 	public String toString() {
-		return "Lijn: startpunt: " + startHoekPunt.toString() + " - eindpunt: " + eindHoekPunt.toString();
+		return "Lijn: startpunt: " + startHoekPunt.toString() + " - eindpunt: " + eindHoekPunt.toString() + getOmhullende().toString();
 	}
 	
 	public Omhullende getOmhullende(){

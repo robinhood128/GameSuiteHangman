@@ -57,7 +57,7 @@ public class Driehoek extends Vorm
 	
 	public String toString()
 	{
-		return "Driehoek: hoekpunt1: " + hoekPunt1.toString() + " hoekpunt2: " + hoekPunt2.toString() + " hoekpunt3: " + hoekPunt3.toString();
+		return "Driehoek: hoekpunt1: " + hoekPunt1.toString() + " hoekpunt2: " + hoekPunt2.toString() + " hoekpunt3: " + hoekPunt3.toString() + getOmhullende().toString();
 	}
 	
 	public Omhullende getOmhullende(){
