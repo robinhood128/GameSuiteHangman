@@ -18,6 +18,7 @@ public class PictionaryUI
 		Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk"};
 		Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 		
+		
 		switch((String)keuze)
 		{
 		case "Cirkel":
@@ -43,7 +44,11 @@ public class PictionaryUI
 	
 	public Cirkel showCirkelMenu()
 	{
-		return null;
+		Punt midden = showPuntMenu();
+		String radiusstring = JOptionPane.showInputDialog("Radius van de cirkel:");
+		int radius = Integer.parseInt(radiusstring);
+
+		return new Cirkel(midden, radius);
 	}
 	
 	public Rechthoek showRechthoekMenu()
