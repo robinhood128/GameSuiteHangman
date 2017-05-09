@@ -13,6 +13,11 @@ public class PictionaryUI
 		this.speler = speler;
 	}
 	
+	public Speler getSpeler()
+	{
+		return speler;
+	}
+	
 	public void showMenu()
 	{
 		Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk"};
@@ -28,6 +33,9 @@ public class PictionaryUI
 			break;
 		case "Driehoek":
 			showDriehoekMenu();
+			break;
+		case "Lijnstuk":
+			showLijnstukMenu();
 			break;
 		}
 	}
@@ -54,5 +62,10 @@ public class PictionaryUI
 	public Driehoek showDriehoekMenu()
 	{
 		return new Driehoek(showPuntMenu(), showPuntMenu(), showPuntMenu());
+	}
+	
+	public Lijnstuk showLijnstukMenu()
+	{
+		return new Lijnstuk(showPuntMenu(), showPuntMenu());
 	}
 }
