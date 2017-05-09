@@ -1,10 +1,10 @@
 package domain;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Tekening extends Vorm
 {
-	private List<Vorm> vormen;
+	private ArrayList<Vorm> vormen;
 	private String naam;
 	private static final int MIN_X = 0;
 	private static final int MIN_Y = 0;
@@ -13,6 +13,7 @@ public class Tekening extends Vorm
 	
 	public Tekening(String naam)
 	{
+		vormen = new ArrayList<Vorm>();
 		setNaam(naam);
 	}
 
@@ -24,7 +25,7 @@ public class Tekening extends Vorm
 	public void setNaam(String naam) 
 	{
 		if (naam == null || naam.trim().isEmpty())
-			throw new DomainException("Slechte naam ingegeven.");
+			throw new IllegalArgumentException("Slechte naam ingegeven.");
 		this.naam = naam;
 	}
 	
@@ -58,6 +59,14 @@ public class Tekening extends Vorm
 		if(!(object instanceof Tekening))
 			return false;
 		Tekening o = (Tekening)object;
-		return o.vormen.equals(vormen);
+		
+		if (o.getAantalVormen() != getAantalVormen())
+			return false;
+		
+		for(Vorm v : vormen)
+			if (!o.bevat(v))
+				return false;
+		
+		return true;
 	}
 }
