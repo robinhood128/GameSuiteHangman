@@ -69,4 +69,14 @@ public class Tekening extends Vorm
 		
 		return true;
 	}
+	
+	public String toString()
+	{
+		String result = "Tekening met naam " + naam + " bestaat uit " + getAantalVormen() + " vormen:";
+		
+		for(Vorm v : vormen)
+			result += "\n" + v.toString();
+		
+		return result;
+	}
 }

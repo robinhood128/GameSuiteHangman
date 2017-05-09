@@ -7,6 +7,7 @@ import domain.*;
 public class PictionaryUI 
 {
 	private Speler speler;
+	private Tekening tekening;
 
 	public PictionaryUI(Speler speler) 
 	{
@@ -20,6 +21,29 @@ public class PictionaryUI
 	
 	public void showMenu()
 	{
+		tekening = new Tekening(JOptionPane.showInputDialog("Geef de naam van je tekening"));
+		showNextCommand();
+	}
+	
+	public void showNextCommand()
+	{
+		switch(Integer.parseInt(JOptionPane.showInputDialog("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen")))
+		{
+		case 1:
+			tekening.voegToe(showVormMenu());
+			break;
+		case 2:
+			JOptionPane.showMessageDialog(null, tekening.toString());
+			break;
+		case 0:
+			return;
+		}
+		
+		showNextCommand();
+	}
+	
+	public Vorm showVormMenu()
+	{
 		Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk"};
 		Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 		
@@ -27,17 +51,15 @@ public class PictionaryUI
 		switch((String)keuze)
 		{
 		case "Cirkel":
-			showCirkelMenu();
-			break;
+			return showCirkelMenu();
 		case "Rechthoek":
-			showRechthoekMenu();
-			break;
+			return showRechthoekMenu();
 		case "Driehoek":
-			showDriehoekMenu();
-			break;
+			return showDriehoekMenu();
 		case "Lijnstuk":
-			showLijnstukMenu();
-			break;
+			return showLijnstukMenu();
+		default:
+			return null;
 		}
 	}
 	
