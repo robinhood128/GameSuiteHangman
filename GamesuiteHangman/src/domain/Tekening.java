@@ -1,8 +1,9 @@
 package domain;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
-public class Tekening extends Vorm
+public class Tekening implements Drawable
 {
 	private ArrayList<Vorm> vormen;
 	private String naam;
@@ -36,8 +37,8 @@ public class Tekening extends Vorm
 		Omhullende o = vorm.getOmhullende();
 		if (o.getLinkerBovenhoek().getX() < MIN_X || 
 			o.getLinkerBovenhoek().getX() + o.getBreedte() > MAX_X ||
-			o.getLinkerBovenhoek().getY() < MIN_X ||
-			o.getLinkerBovenhoek().getY() + o.getHoogte() > MIN_X)
+			o.getLinkerBovenhoek().getY() < MIN_Y ||
+			o.getLinkerBovenhoek().getY() + o.getHoogte() > MAX_Y)
 			throw new DomainException("Vorm is out of bounds.");
 		vormen.add(vorm);
 	}
@@ -88,26 +89,9 @@ public class Tekening extends Vorm
 		return result;
 	}
 
-	public Omhullende getOmhullende() 
+	@Override
+	public void teken(Graphics graphics) 
 	{
-		int minX = MAX_X;
-		int minY = MAX_Y;
-		int maxX = MIN_X;
-		int maxY = MIN_Y;
 		
-		for(Vorm v : vormen)
-		{
-			int x = v.getOmhullende().getLinkerBovenhoek().getX();
-			int y = v.getOmhullende().getLinkerBovenhoek().getY();
-			int b = v.getOmhullende().getBreedte();
-			int h = v.getOmhullende().getHoogte();
-			
-			if (x < minX) minX = x;
-			if (x + b > maxX) maxX = x;
-			if (y < minY) minY = y;
-			if (y + h > maxY) maxY = y;
-		}
-		
-		return new Omhullende(new Punt(minX, minY), maxX - minX, maxY - minY);
 	}
 }

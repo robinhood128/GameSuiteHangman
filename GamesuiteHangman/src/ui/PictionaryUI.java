@@ -19,6 +19,13 @@ public class PictionaryUI
 		return speler;
 	}
 	
+	public void start()
+	{
+		GameMainWindow view = new GameMainWindow(speler.getNaam(), tekening);
+		view.setVisible(true);
+		view.teken();
+	}
+	
 	public void showMenu()
 	{
 		tekening = new Tekening(JOptionPane.showInputDialog("Geef de naam van je tekening"));
