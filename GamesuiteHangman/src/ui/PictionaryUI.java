@@ -15,7 +15,7 @@ public class PictionaryUI
 	
 	public void showMenu()
 	{
-		Object[] shapes = {"Cirkel", "Rechthoek", "Lijnstuk"};
+		Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk"};
 		Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
 		
 		switch((String)keuze)
@@ -25,6 +25,9 @@ public class PictionaryUI
 			break;
 		case "Rechthoek":
 			showRechthoekMenu();
+			break;
+		case "Driehoek":
+			showDriehoekMenu();
 			break;
 		}
 	}
@@ -46,5 +49,10 @@ public class PictionaryUI
 	public Rechthoek showRechthoekMenu()
 	{
 		return new Rechthoek(showPuntMenu(), Integer.parseInt(JOptionPane.showInputDialog("Breedte van de rechthoek:")), Integer.parseInt(JOptionPane.showInputDialog("Lengte van de rechthoek:")));
+	}
+	
+	public Driehoek showDriehoekMenu()
+	{
+		return new Driehoek(showPuntMenu(), showPuntMenu(), showPuntMenu());
 	}
 }
