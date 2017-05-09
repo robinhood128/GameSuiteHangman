@@ -47,7 +47,16 @@ public class Omhullende {
 	}
 	
 	public boolean equals(Object object) {
-		return false;
+		if (!(object instanceof Omhullende)) {
+			return false;
+		} else {
+			Omhullende o = (Omhullende)object;
+			if(o.positieLinksBoven.equals(positieLinksBoven) && o.getBreedte() == getBreedte() && o.getHoogte() == getHoogte()) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	}
 	
 	public String toString() {
