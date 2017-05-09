@@ -79,4 +79,27 @@ public class Tekening extends Vorm
 		
 		return result;
 	}
+
+	public Omhullende getOmhullende() 
+	{
+		int minX = MAX_X;
+		int minY = MAX_Y;
+		int maxX = MIN_X;
+		int maxY = MIN_Y;
+		
+		for(Vorm v : vormen)
+		{
+			int x = v.getOmhullende().getLinkerBovenhoek().getX();
+			int y = v.getOmhullende().getLinkerBovenhoek().getY();
+			int b = v.getOmhullende().getBreedte();
+			int h = v.getOmhullende().getHoogte();
+			
+			if (x < minX) minX = x;
+			if (x + b > maxX) maxX = x;
+			if (y < minY) minY = y;
+			if (y + h > maxY) maxY = y;
+		}
+		
+		return new Omhullende(new Punt(minX, minY), maxX - minX, maxY - minY);
+	}
 }
