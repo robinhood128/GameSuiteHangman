@@ -1,13 +1,6 @@
 package domain;
 
-<<<<<<< HEAD
-public class Driehoek extends Vorm
-{
-=======
-import java.awt.Graphics;
-
 public class Driehoek extends Vorm {
->>>>>>> bb707bfbb94d014c9077122d271f186be83065b1
 	private Punt hoekPunt1;
 	private Punt hoekPunt2;
 	private Punt hoekPunt3;
@@ -83,13 +76,4 @@ public class Driehoek extends Vorm {
 		return new Omhullende(linksboven, breedte, hoogte);
 
 	}
-<<<<<<< HEAD
-=======
-
-	@Override
-	public void teken(Graphics graphics) {
-		// TODO Auto-generated method stub
-
-	}
->>>>>>> bb707bfbb94d014c9077122d271f186be83065b1
 }

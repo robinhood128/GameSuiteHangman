@@ -67,13 +67,4 @@ public class Cirkel extends Vorm {
 		int lengte = getRadius() * 2;
 		return new Omhullende(linksboven, lengte, lengte);
 	}
-<<<<<<< HEAD
-=======
-
-	@Override
-	public void teken(Graphics graphics) {
-		// TODO Auto-generated method stub
-
-	}
->>>>>>> bb707bfbb94d014c9077122d271f186be83065b1
 }
