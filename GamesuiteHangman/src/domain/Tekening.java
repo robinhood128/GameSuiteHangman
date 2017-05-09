@@ -31,6 +31,14 @@ public class Tekening extends Vorm
 	
 	public void voegToe(Vorm vorm)
 	{
+		if (vorm == null)
+			throw new DomainException("Vorm is null.");
+		Omhullende o = vorm.getOmhullende();
+		if (o.getLinkerBovenhoek().getX() < MIN_X || 
+			o.getLinkerBovenhoek().getX() + o.getBreedte() > MAX_X ||
+			o.getLinkerBovenhoek().getY() < MIN_X ||
+			o.getLinkerBovenhoek().getY() + o.getHoogte() > MIN_X)
+			throw new DomainException("Vorm is out of bounds.");
 		vormen.add(vorm);
 	}
 	
