@@ -1,11 +1,9 @@
 package domain;
 
-import java.awt.Graphics;
-
 public class Lijnstuk extends Vorm{
 	
-	private Punt startHoekPunt;
-	private Punt eindHoekPunt;
+	private Punt startPunt;
+	private Punt eindPunt;
 	
 	public Lijnstuk(Punt startPunt, Punt eindPunt) {
 		
@@ -20,17 +18,17 @@ public class Lijnstuk extends Vorm{
 		} else if (startPunt.equals(eindPunt)) {
 			throw new DomainException("Punten mogen niet gelijk zijn aan elkaar");
 		} else {
-		this.startHoekPunt = startPunt;
-		this.eindHoekPunt = eindPunt;
+		this.startPunt = startPunt;
+		this.eindPunt = eindPunt;
 		}
 	}	
 
 	public Punt getStartPunt() {
-		return startHoekPunt;
+		return startPunt;
 	}
 
 	public Punt getEindPunt() {
-		return eindHoekPunt;
+		return eindPunt;
 	}	
 	
 	public boolean equals(Object object) {
@@ -39,13 +37,13 @@ public class Lijnstuk extends Vorm{
 			return false;
 		} else {
 			Lijnstuk o = (Lijnstuk)object;
-			return o.startHoekPunt.equals(startHoekPunt) && o.eindHoekPunt.equals(eindHoekPunt);
+			return o.startPunt.equals(startPunt) && o.eindPunt.equals(eindPunt);
 		}
 	}
 	
 	@Override
 	public String toString() {
-		return "Lijn: startpunt: " + startHoekPunt.toString() + " - eindpunt: " + eindHoekPunt.toString() + getOmhullende().toString();
+		return "Lijn: startpunt: " + startPunt.toString() + " - eindpunt: " + eindPunt.toString() + getOmhullende().toString();
 	}
 	
 	public Omhullende getOmhullende(){
@@ -62,11 +60,4 @@ public class Lijnstuk extends Vorm{
 	    int hoogte = maxy-miny;
 		return new Omhullende(linksboven,breedte,hoogte);
 	}
-
-	@Override
-	public void teken(Graphics graphics) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

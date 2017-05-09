@@ -1,7 +1,5 @@
 package domain;
 
-import java.awt.Graphics;
-
 public class Driehoek extends Vorm
 {
 	private Punt hoekPunt1;
@@ -78,11 +76,5 @@ public class Driehoek extends Vorm
 	    int hoogte = maxy-miny;
 		return new Omhullende(linksboven,breedte,hoogte);
 
-	}
-
-	@Override
-	public void teken(Graphics graphics) {
-		// TODO Auto-generated method stub
-		
 	}
 }
