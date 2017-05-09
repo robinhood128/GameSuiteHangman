@@ -1,6 +1,6 @@
 package domain;
 
-public class Driehoek 
+public class Driehoek extends Vorm
 {
 	private Punt punt1;
 	private Punt punt2;
