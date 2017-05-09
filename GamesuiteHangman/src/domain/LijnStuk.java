@@ -39,6 +39,11 @@ public class Lijnstuk extends Vorm{
 			Lijnstuk o = (Lijnstuk)object;
 			return o.startPunt.equals(startPunt) && o.eindPunt.equals(eindPunt);
 		}
+<<<<<<< HEAD
+		
+		return false;
+=======
+>>>>>>> ad8676c4a1aea69eefb4a30f106b30ffa60347d1
 	}
 	
 	@Override
