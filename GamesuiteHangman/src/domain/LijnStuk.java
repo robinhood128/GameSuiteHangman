@@ -34,12 +34,20 @@ public class LijnStuk {
 	}	
 	
 	public boolean equals(Object object) {
+		
+		if(!(object instanceof LijnStuk)) {
+			return false;
+		} else {
+			LijnStuk o = (LijnStuk)object;
+		}
+		
 		return false;
 		
 	}
 	
+	@Override
 	public String toString() {
-		return "";
+		return "Lijn: startpunt: (" + getStartPunt().getX() +", " + getStartPunt().getY() + ") - eindpunt: (" + getEindPunt().getX() +", " + getEindPunt().getY() + ")";
 	}
 	
 }
