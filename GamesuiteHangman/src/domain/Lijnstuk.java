@@ -46,4 +46,5 @@ public class Lijnstuk extends Vorm{
 		return "Lijn: startpunt: " + startHoekPunt.toString() + " - eindpunt: " + eindHoekPunt.toString();
 	}
 	
+	
 }
