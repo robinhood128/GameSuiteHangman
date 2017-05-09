@@ -6,14 +6,9 @@ public class Cirkel {
 	private int radius;
 	
 	public Cirkel(Punt middelPunt, int radius) {
-		if (radius<=0){
-			throw new IllegalArgumentException("De straal moet positief zijn.");
-		}
-		if(middelPunt==null||middelPunt.getX()<radius||middelPunt.getY()<radius){
-			throw new IllegalArgumentException();
-		}
-		this.radius = radius;
-		this.setMiddelPunt(middelPunt);
+
+		setRadius(radius);
+		setMiddelPunt(middelPunt);
 	}
 	
 	public Cirkel() {
@@ -38,12 +33,29 @@ public class Cirkel {
 	}
 	
 	public void setRadius(int radius) {
+		if (radius<=0){
+			throw new IllegalArgumentException("De straal moet positief zijn.");
+		}
+
 		this.radius = radius;
 	}
 	
+	@Override
+	public boolean equals(Object o){
+		boolean result=false;
+		
+		if (o instanceof Cirkel){
+			if (this.getMiddelPunt().equals(((Cirkel) o).getMiddelPunt()) && this.getRadius() == ((Cirkel) o).getRadius() )
+		result = true;	
+		}
+		
+		return result;
+	}
+
+	@Override
 	public String toString(){
 		String resultaat;
-		resultaat="Middelpunt = ("+middelPunt.getX()+" , "+middelPunt.getY()+") en straal = "+this.radius;
+		resultaat="Cirkel: middelPunt: ("+middelPunt.getX()+" , "+middelPunt.getY()+") - straal: "+this.radius;
 		return resultaat;
 	}
 }
