@@ -66,6 +66,6 @@ public class Rechthoek
 	
 	public String toString()
 	{
-		return "Rechthoek: positie: ("  + linkerBovenhoek.getX() + ", " + linkerBovenhoek.getY() + ") - breedte: " + breedte + " - hoogte: " + hoogte;
+		return "Rechthoek: positie: " + linkerBovenhoek.toString() + " - breedte: " + breedte + " - hoogte: " + hoogte;
 	}
 }

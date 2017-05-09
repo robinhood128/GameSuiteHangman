@@ -1,5 +1,61 @@
 package domain;
 
 public class Cirkel {
+	
+	private Punt middelPunt;
+	private int radius;
+	
+	public Cirkel(Punt middelPunt, int radius) {
 
+		setRadius(radius);
+		setMiddelPunt(middelPunt);
+	}
+	
+	public Cirkel() {
+		this.middelPunt=new Punt(1,1);
+		this.radius = 1;
+	}
+
+	public Punt getMiddelPunt() {
+		return new Punt(middelPunt.getX(),this.middelPunt.getY());
+	}
+	
+	private void setMiddelPunt(Punt middelPunt){
+		if (middelPunt==null){
+			throw new IllegalArgumentException("Het middelpunt mag niet leeg zijn.");
+		}
+		
+		this.middelPunt=middelPunt;
+	}
+	
+	public int getRadius() {
+		return radius;
+	}
+	
+	public void setRadius(int radius) {
+		if (radius<=0){
+			throw new IllegalArgumentException("De straal moet positief zijn.");
+		}
+
+		this.radius = radius;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		boolean result=false;
+		
+		if (o instanceof Cirkel){
+			if (this.getMiddelPunt().equals(((Cirkel) o).getMiddelPunt()) && this.getRadius() == ((Cirkel) o).getRadius() )
+		result = true;	
+		}
+		
+		return result;
+	}
+
+	@Override
+	public String toString(){
+		String resultaat;
+		resultaat="Cirkel: middelPunt: ("+middelPunt.getX()+" , "+middelPunt.getY()+") - straal: "+this.radius;
+		return resultaat;
+	}
 }

@@ -20,6 +20,14 @@ public void setY(int y) {
 	this.y = y;
 }
 
+public boolean equals(Object object)
+{
+	if(!(object instanceof Punt))
+		return false;
+	Punt o = (Punt)object;
+	return o.getX() == x && o.getY() == y;
+}
+
 @Override
 public String toString() {
 	return "(" + getX() + "," + getY() + ")";

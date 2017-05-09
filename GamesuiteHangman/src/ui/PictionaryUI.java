@@ -13,10 +13,16 @@ public class PictionaryUI
 		this.speler = speler;
 	}
 	
+	public Speler getSpeler()
+	{
+		return speler;
+	}
+	
 	public void showMenu()
 	{
-		Object[] shapes = {"Cirkel", "Rechthoek", "Lijnstuk"};
+		Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk"};
 		Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
+		
 		
 		switch((String)keuze)
 		{
@@ -25,6 +31,12 @@ public class PictionaryUI
 			break;
 		case "Rechthoek":
 			showRechthoekMenu();
+			break;
+		case "Driehoek":
+			showDriehoekMenu();
+			break;
+		case "Lijnstuk":
+			showLijnstukMenu();
 			break;
 		}
 	}
@@ -40,11 +52,25 @@ public class PictionaryUI
 	
 	public Cirkel showCirkelMenu()
 	{
-		return null;
+		Punt midden = showPuntMenu();
+		String radiusstring = JOptionPane.showInputDialog("Radius van de cirkel:");
+		int radius = Integer.parseInt(radiusstring);
+
+		return new Cirkel(midden, radius);
 	}
 	
 	public Rechthoek showRechthoekMenu()
 	{
 		return new Rechthoek(showPuntMenu(), Integer.parseInt(JOptionPane.showInputDialog("Breedte van de rechthoek:")), Integer.parseInt(JOptionPane.showInputDialog("Lengte van de rechthoek:")));
+	}
+	
+	public Driehoek showDriehoekMenu()
+	{
+		return new Driehoek(showPuntMenu(), showPuntMenu(), showPuntMenu());
+	}
+	
+	public Lijnstuk showLijnstukMenu()
+	{
+		return new Lijnstuk(showPuntMenu(), showPuntMenu());
 	}
 }
