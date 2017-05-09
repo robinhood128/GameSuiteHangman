@@ -6,12 +6,12 @@ public class Tekening extends Vorm
 {
 	private List<Vorm> vormen;
 	private String naam;
-	private int MIN_X;
-	private int MIN_Y;
-	private int MAX_X;
-	private int MAX_Y;
+	private static final int MIN_X = 0;
+	private static final int MIN_Y = 0;
+	private static final int MAX_X = 399;
+	private static final int MAX_Y = 399;
 	
-	public tekening(String naam)
+	public Tekening(String naam)
 	{
 		setNaam(naam);
 	}
@@ -30,6 +30,34 @@ public class Tekening extends Vorm
 	
 	public void voegToe(Vorm vorm)
 	{
-		
+		vormen.add(vorm);
+	}
+	
+	public Vorm getVorm(int index)
+	{
+		return vormen.get(index);
+	}
+	
+	public int getAantalVormen()
+	{
+		return vormen.size();
+	}
+	
+	public void verwijder(Vorm vorm)
+	{
+		vormen.remove(vorm);
+	}
+	
+	public boolean bevat(Vorm vorm)
+	{
+		return vormen.contains(vorm);
+	}
+	
+	public boolean equals(Object object)
+	{
+		if(!(object instanceof Tekening))
+			return false;
+		Tekening o = (Tekening)object;
+		return o.vormen.equals(vormen);
 	}
 }
