@@ -58,4 +58,13 @@ public class Cirkel extends Vorm {
 		resultaat="Cirkel: middelPunt: ("+middelPunt.getX()+" , "+middelPunt.getY()+") - straal: "+this.radius;
 		return resultaat;
 	}
+	
+	public Omhullende getOmhullende(){
+		Punt midden = getMiddelPunt();
+		int x = midden.getX() - getRadius();
+		int y = midden.getY() - getRadius();
+		Punt linksboven = new Punt(x,y);
+		int lengte = getRadius()*2;
+		return new Omhullende(linksboven, lengte, lengte);
+	}
 }
