@@ -45,6 +45,6 @@ public class PictionaryUI
 	
 	public Rechthoek showRechthoekMenu()
 	{
-		return new Rechthoek(showPuntMenu(), 1, 1);
+		return new Rechthoek(showPuntMenu(), Integer.parseInt(JOptionPane.showInputDialog("Breedte van de rechthoek:")), Integer.parseInt(JOptionPane.showInputDialog("Lengte van de rechthoek:")));
 	}
 }
