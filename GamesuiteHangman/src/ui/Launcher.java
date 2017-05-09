@@ -12,6 +12,6 @@ public class Launcher
 		Speler speler = new Speler(naam);
 		PictionaryUI ui = new PictionaryUI(speler);
 		JOptionPane.showMessageDialog(null, "... zal binnekort spelen", speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
-	ui.showMenu();
+		ui.showMenu();
 	}
 }
