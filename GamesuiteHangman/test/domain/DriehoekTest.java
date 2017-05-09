@@ -23,54 +23,54 @@ public class DriehoekTest {
 		assertEquals(punt2, drieHoek.getHoekPunt2());
 		assertEquals(punt3, drieHoek.getHoekPunt3());
 	}
-	
-	@Test (expected = DomainException.class)
-	public void Driehoek_Moet_exception_gooien_als_hoekpunt1_null()  {
+
+	@Test(expected = DomainException.class)
+	public void Driehoek_Moet_exception_gooien_als_hoekpunt1_null() {
 		new Driehoek(null, punt2, punt3);
 	}
-	
-	@Test (expected = DomainException.class)
-	public void Driehoek_Moet_exception_gooien_als_hoekpunt2_null()  {
+
+	@Test(expected = DomainException.class)
+	public void Driehoek_Moet_exception_gooien_als_hoekpunt2_null() {
 		new Driehoek(punt1, null, punt3);
 	}
-	
-	@Test (expected = DomainException.class)
-	public void DrieHoek_Moet_exception_gooien_als_hoekpunt3_null()  {
+
+	@Test(expected = DomainException.class)
+	public void DrieHoek_Moet_exception_gooien_als_hoekpunt3_null() {
 		new Driehoek(punt1, punt2, null);
 	}
-	
+
 	@Test
-	public void equals_moet_false_teruggeven_als_hoekPunt1_verschillend(){
+	public void equals_moet_false_teruggeven_als_hoekPunt1_verschillend() {
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		Driehoek andereDriehoek = new Driehoek(verschillendVanPunt1, zelfdeAlsPunt2, zelfdeAlsPunt3);
 		assertFalse(drieHoek.equals(andereDriehoek));
 	}
-	
+
 	@Test
-	public void equals_moet_false_teruggeven_als_hoekPunt2_verschillend(){
+	public void equals_moet_false_teruggeven_als_hoekPunt2_verschillend() {
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		Driehoek andereDriehoek = new Driehoek(zelfdeAlsPunt1, verschillendVanPunt2, zelfdeAlsPunt3);
 		assertFalse(drieHoek.equals(andereDriehoek));
 	}
-	
+
 	@Test
-	public void equals_moet_false_teruggeven_als_hoekPunt3_verschillend(){
+	public void equals_moet_false_teruggeven_als_hoekPunt3_verschillend() {
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		Driehoek andereDriehoek = new Driehoek(zelfdeAlsPunt1, zelfdeAlsPunt2, verschillendVanPunt3);
 		assertFalse(drieHoek.equals(andereDriehoek));
 	}
-	
+
 	@Test
-	public void equals_moet_false_teruggeven_als_parameter_null(){
+	public void equals_moet_false_teruggeven_als_parameter_null() {
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		assertFalse(drieHoek.equals(null));
 	}
-	
+
 	@Test
-	public void testGetOmhullende_geeft_correcte_Omhullende(){
-		Driehoek een = new Driehoek(new Punt(10,10),new Punt(12,15),new Punt(20,20));
-		Punt linkerbovenhoek = new Punt(10,10);
-		Omhullende test = new Omhullende(linkerbovenhoek,10,10);
+	public void testGetOmhullende_geeft_correcte_Omhullende() {
+		Driehoek een = new Driehoek(new Punt(10, 10), new Punt(12, 15), new Punt(20, 20));
+		Punt linkerbovenhoek = new Punt(10, 10);
+		Omhullende test = new Omhullende(linkerbovenhoek, 10, 10);
 		assertTrue(test.equals(een.getOmhullende()));
 	}
 
