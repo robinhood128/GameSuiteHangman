@@ -49,8 +49,8 @@ public class Rechthoek extends Vorm
 		this.hoogte = hoogte;
 	}
 	
-	public String getOmhullende() {
-		return toString() + "\n" + getOmhullende();
+	public Omhullende getOmhullende() {
+		return new Omhullende(linkerBovenhoek, breedte, hoogte);
 	}
 	
 	public boolean equals(Object object)

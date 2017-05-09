@@ -46,5 +46,19 @@ public class Lijnstuk extends Vorm{
 		return "Lijn: startpunt: " + startHoekPunt.toString() + " - eindpunt: " + eindHoekPunt.toString();
 	}
 	
+	public Omhullende getOmhullende(){
+		int x1 = getStartPunt().getX();
+		int x2 = getEindPunt().getX();
+		int y1= getStartPunt().getY();
+		int y2 = getEindPunt().getY();
+	    int minx = Math.min(x1, x2);
+	    int miny = Math.min(y1, y2);
+	    int maxx = Math.max(x1, x2);
+	    int maxy = Math.max(y1, y2);
+	    Punt linksboven = new Punt(minx,miny);
+	    int breedte = maxx-minx;
+	    int hoogte = maxy-miny;
+		return new Omhullende(linksboven,breedte,hoogte);
+	}
 	
 }
