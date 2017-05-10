@@ -38,6 +38,14 @@ public class LijnStukTest {
 	}
 	
 	@Test
+	public void equals_moet_true_teruggeven_als_begin_en_eindpunt_niet_gelijk_zijn() {
+		Punt nieuwpunt = new Punt(45,67);
+		Lijnstuk lijnstuk = new Lijnstuk(nieuwpunt, punt1);
+		Lijnstuk anderLijnstuk = new Lijnstuk(nieuwpunt, punt2);
+		assertFalse(lijnstuk.equals(anderLijnstuk));
+	}
+	
+	@Test
 	public void equals_moet_false_teruggeven_als_parameter_null(){
 		Lijnstuk lijnStuk = new Lijnstuk(punt1, punt2);
 		assertFalse(lijnStuk.equals(null));
