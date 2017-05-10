@@ -42,7 +42,7 @@ public class Speler
 		else
 		{
 			Speler o = (Speler)object;
-			return o.naam == naam && o.score == score;
+			return o.naam.equals(naam) && o.score == score;
 		}
 	}
 }

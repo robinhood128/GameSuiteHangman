@@ -6,11 +6,12 @@ public class Driehoek extends Vorm {
 	private Punt hoekPunt3;
 
 	public Driehoek(Punt hoekPunt1, Punt hoekPunt2, Punt hoekPunt3) {
-		if (hoekPunt1 == null)
-			throw new DomainException("Punt mag niet null zijn.");
-		if (hoekPunt2 == null)
-			throw new DomainException("Punt mag niet null zijn.");
-		if (hoekPunt3 == null)
+		setHoekPunten(hoekPunt1, hoekPunt2, hoekPunt3);
+	}
+	
+	public void setHoekPunten(Punt hoekPunt1, Punt hoekPunt2, Punt hoekPunt3)
+	{
+		if (hoekPunt1 == null || hoekPunt2 == null || hoekPunt3 == null)
 			throw new DomainException("Punt mag niet null zijn.");
 		if (hoekPunt1.equals(hoekPunt2) || hoekPunt1.equals(hoekPunt3) || hoekPunt2.equals(hoekPunt3))
 			throw new DomainException("Punten mogen niet samen vallen.");
@@ -18,33 +19,21 @@ public class Driehoek extends Vorm {
 				* (hoekPunt3.getY() - hoekPunt1.getY()) == (hoekPunt3.getX() - hoekPunt1.getX())
 						* (hoekPunt2.getY() - hoekPunt1.getY()))
 			throw new DomainException("Punten mogen niet op een lijn liggen.");
-		setHoekPunt1(hoekPunt1);
-		setHoekPunt2(hoekPunt2);
-		setHoekPunt3(hoekPunt3);
+		this.hoekPunt1 = hoekPunt1;
+		this.hoekPunt2 = hoekPunt2;
+		this.hoekPunt3 = hoekPunt3;
 	}
 
 	public Punt getHoekPunt1() {
 		return hoekPunt1;
 	}
 
-	public void setHoekPunt1(Punt hoekPunt1) {
-		this.hoekPunt1 = hoekPunt1;
-	}
-
 	public Punt getHoekPunt2() {
 		return hoekPunt2;
 	}
 
-	public void setHoekPunt2(Punt hoekPunt2) {
-		this.hoekPunt2 = hoekPunt2;
-	}
-
 	public Punt getHoekPunt3() {
 		return hoekPunt3;
-	}
-
-	public void setHoekPunt3(Punt hoekPunt3) {
-		this.hoekPunt3 = hoekPunt3;
 	}
 
 	public boolean equals(Object object) {
