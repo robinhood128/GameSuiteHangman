@@ -1,8 +1,8 @@
 package domain;
 
 public class Speler {
-	public String naam;
-	public int score;
+	private String naam;
+	private int score;
 
 	public Speler(String naam) {
 		setNaam(naam);
