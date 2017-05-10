@@ -2,7 +2,8 @@ package ui;
 
 import javax.swing.JOptionPane;
 
-import domain.Speler;
+import db.WoordenLezer;
+import domain.*;
 
 public class Launcher {
 	public static void main(String[] args) {
@@ -13,9 +14,18 @@ public class Launcher {
 		}
 
 		Speler speler = new Speler(naam);
-		PictionaryUI ui = new PictionaryUI(speler);
+		/*PictionaryUI ui = new PictionaryUI(speler);
 		// JOptionPane.showMessageDialog(null, "... zal binnekort spelen",
 		// speler.getNaam(), JOptionPane.INFORMATION_MESSAGE);
-		ui.showMenu();
+		ui.showMenu();*/
+		WoordenLijst lijst = new WoordenLijst();
+		WoordenLezer lezer = new WoordenLezer("hangman.txt");
+		
+		for (String woord : lezer.leesWoorden())
+			lijst.voegToe(woord);
+		
+		System.out.println(lijst.getRandomWoord());
+		HangManUI hangmanUI = new HangManUI(speler, lijst);
+		hangmanUI.play();
 	}
 }

@@ -3,16 +3,13 @@ package domain;
 import java.util.ArrayList;
 import java.util.Random;
 
-import db.WoordenLezer;
-
 public class WoordenLijst {
 
 	private ArrayList<String> woorden;
 	
 	public WoordenLijst()
 	{
-		WoordenLezer lezer = new WoordenLezer("hangman.txt");
-		woorden = lezer.leesWoorden();
+		woorden = new ArrayList<String>();
 	}
 	
 	public int getAantalWoorden()
@@ -24,12 +21,14 @@ public class WoordenLijst {
 	{
 		if (string == null || string.trim().isEmpty())
 			throw new DomainException("Foute string.");
+		if (woorden.contains(string))
+			throw new DomainException("Woord zit al in de woordenlijst.");
 		woorden.add(string);
 	}
 	
-	public void getRandomWoord()
+	public String getRandomWoord()
 	{
 		Random random = new Random();
-		woorden.get(random.nextInt(getAantalWoorden()));
+		return woorden.get(random.nextInt(getAantalWoorden()));
 	}
 }
