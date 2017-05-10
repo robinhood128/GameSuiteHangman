@@ -1,5 +1,7 @@
 package domain;
 
+import java.awt.Graphics;
+
 public class Driehoek extends Vorm {
 	private Punt hoekPunt1;
 	private Punt hoekPunt2;
@@ -66,5 +68,12 @@ public class Driehoek extends Vorm {
 		int hoogte = maxy - miny;
 		return new Omhullende(linksboven, breedte, hoogte);
 
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		int[] xPoints = { getHoekPunt1().getX(), getHoekPunt2().getX(), getHoekPunt3().getX() };
+		int[] yPoints = { getHoekPunt1().getY(), getHoekPunt2().getY(), getHoekPunt3().getY() };
+		graphics.drawPolygon(xPoints, yPoints, 3);
 	}
 }
