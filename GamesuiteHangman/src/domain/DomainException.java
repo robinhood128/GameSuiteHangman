@@ -1,10 +1,8 @@
 package domain;
 
-public class DomainException extends RuntimeException 
-{
+public class DomainException extends RuntimeException {
 
-	public DomainException(String string) 
-	{
+	public DomainException(String string) {
 		super(string);
 	}
 
@@ -12,5 +10,5 @@ public class DomainException extends RuntimeException
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 }

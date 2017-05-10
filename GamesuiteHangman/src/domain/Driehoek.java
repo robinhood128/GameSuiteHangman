@@ -8,9 +8,8 @@ public class Driehoek extends Vorm {
 	public Driehoek(Punt hoekPunt1, Punt hoekPunt2, Punt hoekPunt3) {
 		setHoekPunten(hoekPunt1, hoekPunt2, hoekPunt3);
 	}
-	
-	public void setHoekPunten(Punt hoekPunt1, Punt hoekPunt2, Punt hoekPunt3)
-	{
+
+	public void setHoekPunten(Punt hoekPunt1, Punt hoekPunt2, Punt hoekPunt3) {
 		if (hoekPunt1 == null || hoekPunt2 == null || hoekPunt3 == null)
 			throw new DomainException("Punt mag niet null zijn.");
 		if (hoekPunt1.equals(hoekPunt2) || hoekPunt1.equals(hoekPunt3) || hoekPunt2.equals(hoekPunt3))
@@ -36,6 +35,7 @@ public class Driehoek extends Vorm {
 		return hoekPunt3;
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		if (!(object instanceof Driehoek))
 			return false;
@@ -43,11 +43,13 @@ public class Driehoek extends Vorm {
 		return o.hoekPunt1.equals(hoekPunt1) && o.hoekPunt2.equals(hoekPunt2) && o.hoekPunt3.equals(hoekPunt3);
 	}
 
+	@Override
 	public String toString() {
 		return "Driehoek: hoekpunt1: " + hoekPunt1.toString() + " hoekpunt2: " + hoekPunt2.toString() + " hoekpunt3: "
 				+ hoekPunt3.toString() + getOmhullende().toString();
 	}
 
+	@Override
 	public Omhullende getOmhullende() {
 		int x1 = getHoekPunt1().getX();
 		int x2 = getHoekPunt2().getX();
