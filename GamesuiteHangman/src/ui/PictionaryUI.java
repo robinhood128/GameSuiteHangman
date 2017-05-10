@@ -15,6 +15,13 @@ public class PictionaryUI {
 	public Speler getSpeler() {
 		return speler;
 	}
+	
+	public void showTekening()
+	{
+		GameHoofdScherm scherm = new GameHoofdScherm(speler.getNaam(), tekening);
+		scherm.setVisible(true);
+		scherm.teken();
+	}
 
 	public void showMenu() {
 		tekening = new Tekening(getInputString("Geef de naam van je tekening"));
@@ -27,7 +34,8 @@ public class PictionaryUI {
 			tekening.voegToe(showVormMenu());
 			break;
 		case 2:
-			JOptionPane.showMessageDialog(null, tekening.toString());
+			showTekening();
+			//JOptionPane.showMessageDialog(null, tekening.toString());
 			return;
 		case 0:
 			return;

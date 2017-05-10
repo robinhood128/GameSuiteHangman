@@ -1,5 +1,7 @@
 package domain;
 
+import java.awt.Graphics;
+
 public class Lijnstuk extends Vorm {
 
 	private Punt startPunt;
@@ -62,5 +64,10 @@ public class Lijnstuk extends Vorm {
 		int breedte = maxx - minx;
 		int hoogte = maxy - miny;
 		return new Omhullende(linksboven, breedte, hoogte);
+	}
+
+	@Override
+	public void teken(Graphics graphics) {
+		graphics.drawLine(getStartPunt().getX(), getStartPunt().getY(), getEindPunt().getX(), getEindPunt().getY());
 	}
 }
