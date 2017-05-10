@@ -41,10 +41,12 @@ public class Rechthoek extends Vorm {
 		this.hoogte = hoogte;
 	}
 
+	@Override
 	public Omhullende getOmhullende() {
 		return new Omhullende(linkerBovenhoek, breedte, hoogte);
 	}
 
+	@Override
 	public boolean equals(Object object) {
 		if (!(object instanceof Rechthoek))
 			return false;
@@ -54,6 +56,7 @@ public class Rechthoek extends Vorm {
 		}
 	}
 
+	@Override
 	public String toString() {
 		return "Rechthoek: positie: " + linkerBovenhoek.toString() + " - breedte: " + breedte + " - hoogte: " + hoogte
 				+ getOmhullende().toString();

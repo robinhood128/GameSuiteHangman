@@ -46,6 +46,23 @@ public class Omhullende {
 		this.hoogte = hoogte;
 	}
 
+	public int getMinimumX() {
+		return positieLinksBoven.getX();
+	}
+
+	public int getMinimumY() {
+		return positieLinksBoven.getY();
+	}
+
+	public int getMaximumX() {
+		return positieLinksBoven.getX() + breedte;
+	}
+
+	public int getMaximumY() {
+		return positieLinksBoven.getY() + hoogte;
+	}
+
+	@Override
 	public boolean equals(Object object) {
 		if (!(object instanceof Omhullende)) {
 			return false;
@@ -60,8 +77,8 @@ public class Omhullende {
 		}
 	}
 
+	@Override
 	public String toString() {
-		return "\nOmhullende: " + getLinkerBovenhoek() + " - "
-				+ getBreedte() + " - " + getHoogte();
+		return "\nOmhullende: " + getLinkerBovenhoek() + " - " + getBreedte() + " - " + getHoogte();
 	}
 }
