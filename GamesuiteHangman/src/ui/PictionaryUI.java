@@ -25,10 +25,10 @@ public class PictionaryUI {
 
 	public void showMenu() {
 		tekening = new Tekening(getInputString("Geef de naam van je tekening"));
-		showNextCommand();
+		while(showNextCommand());
 	}
 
-	public void showNextCommand() {
+	public boolean showNextCommand() {
 		switch (getInputInteger("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen")) {
 		case 1:
 			tekening.voegToe(showVormMenu());
@@ -36,12 +36,12 @@ public class PictionaryUI {
 		case 2:
 			showTekening();
 			//JOptionPane.showMessageDialog(null, tekening.toString());
-			return;
+			return false;
 		case 0:
-			return;
+			return false;
 		}
 
-		showNextCommand();
+		return true;
 	}
 
 	public Vorm showVormMenu() {
