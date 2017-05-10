@@ -16,6 +16,7 @@ public class TekeningTest {
 	private Vorm raambalk1;
 	private Vorm raambalk2;
 	private Vorm schouwNietInTekening;
+	private Vorm vormNietInTekening;
 	
 	@Before
 	public void setUp() {
@@ -27,6 +28,7 @@ public class TekeningTest {
 		raambalk1 = new Lijnstuk(new Punt(210, 250), new Punt(290, 250));
 		raambalk2 = new Lijnstuk(new Punt(250, 220), new Punt(250, 280));
 		schouwNietInTekening = new Rechthoek(new Punt(150, 150), 20,40);
+		vormNietInTekening = new Cirkel (new Punt(500,500), 5);
 	}
 
 	@Test
@@ -44,6 +46,18 @@ public class TekeningTest {
 	@Test (expected = IllegalArgumentException.class)
 	public void Tekening_moet_exception_gooien_als_naam_leeg() {
 		new Tekening("");
+	}
+	
+	@Test (expected = DomainException.class)
+	public void Tekening_moet_exception_gooien_als_vorm_buiten_tekening_valt() {
+		Tekening huis = new Tekening("Huis");
+		huis.voegToe(vormNietInTekening);
+	}
+	
+	@Test (expected = DomainException.class)
+	public void Tekening_moet_exception_gooien_als_vorm_leeg_is() {
+		Tekening huis= new Tekening("Huis");
+		huis.voegToe(null);
 	}
 
 	@Test 
