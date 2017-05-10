@@ -9,10 +9,6 @@ import domain.Vorm;
 
 public class TekeningHangMan extends Tekening {
 
-    public TekeningHangMan(String naam) {
-        super(naam);
-    }
-
     Vorm galgBodem = new Rechthoek(new Punt(10, 350), 300, 40);
     Vorm galgStaaf = new Lijnstuk(new Punt(160, 350), new Punt(160, 50));
     Vorm hangbar = new Lijnstuk(new Punt(160,50), new Punt(280,50));
@@ -31,30 +27,26 @@ public class TekeningHangMan extends Tekening {
     Vorm armRechts = new Lijnstuk(new Punt(280, 200), new Punt(330, 170));
     Vorm handLinks = new Cirkel(new Punt(230, 170), 5);
     Vorm handRechts = new Cirkel(new Punt(330, 170), 5);
-    
-    public Tekening AfbeeldingHangMan() {
-        Tekening hangMan = new Tekening("Hangman");
-        
-        hangMan.voegToe(galgBodem);
-        hangMan.voegToe(galgStaaf);
-        hangMan.voegToe(hangbar);
-        hangMan.voegToe(koord);
-        hangMan.voegToe(hoofd);
-        hangMan.voegToe(oogLinks);
-        hangMan.voegToe(oogRechts);
-        hangMan.voegToe(neus);
-        hangMan.voegToe(mond);
-        hangMan.voegToe(lijf);
-        hangMan.voegToe(beenLinks);
-        hangMan.voegToe(beenRechts);
-        hangMan.voegToe(voetLinks);
-        hangMan.voegToe(voetRechts);
-        hangMan.voegToe(armLinks);
-        hangMan.voegToe(armRechts);
-        hangMan.voegToe(handLinks);
-        hangMan.voegToe(handRechts);
-        
-        return hangMan;
 
-    }    
+    public TekeningHangMan(String naam) {
+        super(naam);
+        voegToe(galgBodem);
+        voegToe(galgStaaf);
+        voegToe(hangbar);
+        voegToe(koord);
+        voegToe(hoofd);
+        voegToe(oogLinks);
+        voegToe(oogRechts);
+        voegToe(neus);
+        voegToe(mond);
+        voegToe(lijf);
+        voegToe(beenLinks);
+        voegToe(beenRechts);
+        voegToe(voetLinks);
+        voegToe(voetRechts);
+        voegToe(armLinks);
+        voegToe(armRechts);
+        voegToe(handLinks);
+        voegToe(handRechts);
+    }
 }

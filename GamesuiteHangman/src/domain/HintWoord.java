@@ -8,7 +8,7 @@ public class HintWoord {
 	private boolean isGeraden = false;
 
 	public HintWoord(String woord) {
-		hintletters = new ArrayList();
+		hintletters = new ArrayList<HintLetter>();
 		setWoord(woord);
 		setHintletters(woord);
 	}

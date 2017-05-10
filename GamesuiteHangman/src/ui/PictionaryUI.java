@@ -24,12 +24,12 @@ public class PictionaryUI {
 	}
 
 	public void showMenu() {
-		tekening = new Tekening(getInputString("Geef de naam van je tekening"));
+		tekening = new Tekening(InputDialogUtils.getInputString("Geef de naam van je tekening"));
 		while(showNextCommand());
 	}
 
 	public boolean showNextCommand() {
-		switch (getInputInteger("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen")) {
+		switch (InputDialogUtils.getInputInteger("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen")) {
 		case 1:
 			tekening.voegToe(showVormMenu());
 			break;
@@ -46,7 +46,7 @@ public class PictionaryUI {
 
 	public Vorm showVormMenu() {
 		Object[] shapes = { "Cirkel", "Rechthoek", "Driehoek", "Lijnstuk" };
-		Object keuze = getInputObject("Wat wilt u tekenen?", shapes);
+		Object keuze = InputDialogUtils.getInputObject("Wat wilt u tekenen?", shapes);
 
 		switch ((String) keuze) {
 		case "Cirkel":
@@ -63,20 +63,20 @@ public class PictionaryUI {
 	}
 
 	public Punt showPuntMenu() {
-		int x = getInputInteger("x coordinaat van het punt:");
-		int y = getInputInteger("y coordinaat van het punt:");
+		int x = InputDialogUtils.getInputInteger("x coordinaat van het punt:");
+		int y = InputDialogUtils.getInputInteger("y coordinaat van het punt:");
 		return new Punt(x, y);
 	}
 
 	public Cirkel showCirkelMenu() {
 		Punt midden = showPuntMenu();
-		int radius = getInputInteger("Radius van de cirkel:");
+		int radius = InputDialogUtils.getInputInteger("Radius van de cirkel:");
 		return new Cirkel(midden, radius);
 	}
 
 	public Rechthoek showRechthoekMenu() {
-		return new Rechthoek(showPuntMenu(), getInputInteger("Breedte van de rechthoek:"),
-				getInputInteger("Lengte van de rechthoek:"));
+		return new Rechthoek(showPuntMenu(), InputDialogUtils.getInputInteger("Breedte van de rechthoek:"),
+				InputDialogUtils.getInputInteger("Lengte van de rechthoek:"));
 	}
 
 	public Driehoek showDriehoekMenu() {
@@ -85,42 +85,5 @@ public class PictionaryUI {
 
 	public Lijnstuk showLijnstukMenu() {
 		return new Lijnstuk(showPuntMenu(), showPuntMenu());
-	}
-
-	public String getInputString(String content) {
-		String result = "";
-
-		while (result == null || result.trim().isEmpty()) {
-			result = JOptionPane.showInputDialog(content);
-		}
-
-		return result;
-	}
-
-	public Object getInputObject(String content, Object... multiplechoise) {
-		Object result = null;
-
-		while (result == null) {
-			result = JOptionPane.showInputDialog(null, content, "input", JOptionPane.INFORMATION_MESSAGE, null,
-					multiplechoise, null);
-		}
-
-		return result;
-	}
-
-	public int getInputInteger(String content) {
-		int result = -1;
-
-		while (result == -1) {
-			try {
-				result = Integer.parseInt(JOptionPane.showInputDialog(content));
-			}
-
-			catch (Exception e) {
-				result = -1;
-			}
-		}
-
-		return result;
 	}
 }

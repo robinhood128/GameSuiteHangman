@@ -7,6 +7,8 @@ public class HangManUI {
 
 	private Speler speler;
 	private WoordenLijst woordenlijst;
+	private HangManHoofdScherm scherm;
+	private HangmanPaneel paneel;
 	
 	public HangManUI(Speler speler, WoordenLijst woordenlijst)
 	{
