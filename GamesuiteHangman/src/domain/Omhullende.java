@@ -61,7 +61,7 @@ public class Omhullende {
 	}
 
 	public String toString() {
-		return "\nOmhullende: (" + getLinkerBovenhoek().getX() + ", " + getLinkerBovenhoek().getY() + ") - "
+		return "\nOmhullende: " + getLinkerBovenhoek() + " - "
 				+ getBreedte() + " - " + getHoogte();
 	}
 }
