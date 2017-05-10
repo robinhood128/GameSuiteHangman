@@ -18,7 +18,7 @@ public class Cirkel extends Vorm {
 		return new Punt(middelPunt.getX(), this.middelPunt.getY());
 	}
 
-	private void setMiddelPunt(Punt middelPunt) {
+	public void setMiddelPunt(Punt middelPunt) {
 		if (middelPunt == null) {
 			throw new IllegalArgumentException("Het middelpunt mag niet leeg zijn.");
 		}
@@ -30,7 +30,7 @@ public class Cirkel extends Vorm {
 		return radius;
 	}
 
-	public void setRadius(int radius) {
+	private void setRadius(int radius) {
 		if (radius <= 0) {
 			throw new IllegalArgumentException("De straal moet positief zijn.");
 		}

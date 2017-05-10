@@ -15,7 +15,7 @@ public class Rechthoek extends Vorm {
 		return linkerBovenhoek;
 	}
 
-	public void setLinkerBovenhoek(Punt linkerBovenhoek) {
+	private void setLinkerBovenhoek(Punt linkerBovenhoek) {
 		if (linkerBovenhoek == null)
 			throw new DomainException("Slecht punt.");
 		this.linkerBovenhoek = linkerBovenhoek;
@@ -25,7 +25,7 @@ public class Rechthoek extends Vorm {
 		return breedte;
 	}
 
-	public void setBreedte(int breedte) {
+	private void setBreedte(int breedte) {
 		if (breedte <= 0)
 			throw new DomainException("Slechte breedte.");
 		this.breedte = breedte;
@@ -35,7 +35,7 @@ public class Rechthoek extends Vorm {
 		return hoogte;
 	}
 
-	public void setHoogte(int hoogte) {
+	private void setHoogte(int hoogte) {
 		if (hoogte <= 0)
 			throw new DomainException("Slechte hoogte.");
 		this.hoogte = hoogte;

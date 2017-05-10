@@ -17,7 +17,7 @@ public class Omhullende {
 		return positieLinksBoven;
 	}
 
-	public void setLinkerBovenhoek(Punt positieLinksBoven) {
+	private void setLinkerBovenhoek(Punt positieLinksBoven) {
 		if (positieLinksBoven == null) {
 			throw new DomainException("Punt mag niet null zijn");
 		}
@@ -28,7 +28,7 @@ public class Omhullende {
 		return breedte;
 	}
 
-	public void setBreedte(int breedte) {
+	private void setBreedte(int breedte) {
 		if (breedte < 0) {
 			throw new DomainException("Breedte moet groter of gelijk aan nul zijn.");
 		}
@@ -39,7 +39,7 @@ public class Omhullende {
 		return hoogte;
 	}
 
-	public void setHoogte(int hoogte) {
+	private void setHoogte(int hoogte) {
 		if (hoogte < 0) {
 			throw new DomainException("Hoogte moet groter of gelijk aan nul zijn");
 		}

@@ -22,7 +22,7 @@ public class Tekening
 		return naam;
 	}
 
-	public void setNaam(String naam) 
+	private void setNaam(String naam) 
 	{
 		if (naam == null || naam.trim().isEmpty())
 			throw new IllegalArgumentException("Slechte naam ingegeven.");
