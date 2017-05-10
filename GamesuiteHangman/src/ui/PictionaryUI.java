@@ -21,13 +21,13 @@ public class PictionaryUI
 	
 	public void showMenu()
 	{
-		tekening = new Tekening(JOptionPane.showInputDialog("Geef de naam van je tekening"));
+		tekening = new Tekening(getInputString("Geef de naam van je tekening"));
 		showNextCommand();
 	}
 	
 	public void showNextCommand()
 	{
-		switch(Integer.parseInt(JOptionPane.showInputDialog("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen")))
+		switch(getInputInteger("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen"))
 		{
 		case 1:
 			tekening.voegToe(showVormMenu());
@@ -45,8 +45,7 @@ public class PictionaryUI
 	public Vorm showVormMenu()
 	{
 		Object[] shapes = {"Cirkel", "Rechthoek", "Driehoek", "Lijnstuk"};
-		Object keuze = JOptionPane.showInputDialog(null, "Wat wilt u tekenen?", "input", JOptionPane.INFORMATION_MESSAGE, null, shapes, null);
-		
+		Object keuze = getInputObject("Wat wilt u tekenen?", shapes);
 		
 		switch((String)keuze)
 		{
@@ -65,25 +64,21 @@ public class PictionaryUI
 	
 	public Punt showPuntMenu()
 	{
-		String xstring = JOptionPane.showInputDialog("x coordinaat van het punt:");
-		String ystring = JOptionPane.showInputDialog("y coordinaat van het punt:");
-		int x = Integer.parseInt(xstring);
-		int y = Integer.parseInt(ystring);
+		int x = getInputInteger("x coordinaat van het punt:");
+		int y = getInputInteger("y coordinaat van het punt:");
 		return new Punt(x,y);
 	}
 	
 	public Cirkel showCirkelMenu()
 	{
 		Punt midden = showPuntMenu();
-		String radiusstring = JOptionPane.showInputDialog("Radius van de cirkel:");
-		int radius = Integer.parseInt(radiusstring);
-
+		int radius = getInputInteger("Radius van de cirkel:");
 		return new Cirkel(midden, radius);
 	}
 	
 	public Rechthoek showRechthoekMenu()
 	{
-		return new Rechthoek(showPuntMenu(), Integer.parseInt(JOptionPane.showInputDialog("Breedte van de rechthoek:")), Integer.parseInt(JOptionPane.showInputDialog("Lengte van de rechthoek:")));
+		return new Rechthoek(showPuntMenu(), getInputInteger("Breedte van de rechthoek:"), getInputInteger("Lengte van de rechthoek:"));
 	}
 	
 	public Driehoek showDriehoekMenu()
@@ -94,5 +89,49 @@ public class PictionaryUI
 	public Lijnstuk showLijnstukMenu()
 	{
 		return new Lijnstuk(showPuntMenu(), showPuntMenu());
+	}
+	
+	public String getInputString(String content)
+	{
+		String result = "";
+		
+		while(result == null || result.trim().isEmpty())
+		{
+			result = JOptionPane.showInputDialog(content);
+		}
+		
+		return result;
+	}
+	
+	public Object getInputObject(String content, Object ... multiplechoise)
+	{
+		Object result = null;
+		
+		while(result == null)
+		{
+			result = JOptionPane.showInputDialog(null, content, "input", JOptionPane.INFORMATION_MESSAGE, null, multiplechoise, null);
+		}
+		
+		return result;
+	}
+	
+	public int getInputInteger(String content)
+	{
+		int result = -1;
+		
+		while(result == -1)
+		{
+			try
+			{
+				result = Integer.parseInt(JOptionPane.showInputDialog(content));
+			}
+			
+			catch (Exception e)
+			{
+				result = -1;
+			}
+		}
+		
+		return result;
 	}
 }
