@@ -18,7 +18,6 @@ public class Launcher {
 			for (String woord : lezer.leesWoorden())
 				lijst.voegToe(woord);
 			
-			System.out.println(lijst.getRandomWoord());
 			HangManUI hangmanUI = new HangManUI(speler, lijst);
 			hangmanUI.play();
 			break;

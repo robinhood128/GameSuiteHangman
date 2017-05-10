@@ -67,7 +67,7 @@ public class HintWoord {
 
 	public String toString() {
 		// dummy
-		String woordje = " ";
+		String woordje = "";
 		for (HintLetter h : hintletters) {
 			woordje += h.toChar() + " ";
 

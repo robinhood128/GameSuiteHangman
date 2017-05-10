@@ -54,12 +54,25 @@ public class HangmanPaneel extends JPanel {
 					guess = input.charAt(0);
 				}
 				//TODO raad
+				spel.raad(guess);
 
 				woord.setText(getSpel().getHint());
 				letter.setText("");
 				getTekenVenster().teken();
 				
 				//TODO
+				
+				if (spel.isGewonnen())
+				{
+					JOptionPane.showMessageDialog(null, "U hebt gewonnen!");
+					System.exit(0);
+				}
+				
+				if (spel.isGameOver())
+				{
+					JOptionPane.showMessageDialog(null, "U hebt verloren, het woord was " + spel.getWoord() + "!");
+					System.exit(0);
+				}
 				//toon boodschap als gewonnen of verloren en vraag of speler opnieuw wilt spelen
 				//als de speler opnieuw wilt spelen: herzet het spel en het paneel
 				//anders stop (System.exit(0))
