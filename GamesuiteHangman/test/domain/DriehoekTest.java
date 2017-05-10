@@ -65,6 +65,13 @@ public class DriehoekTest {
 		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
 		assertFalse(drieHoek.equals(null));
 	}
+	
+	@Test
+	public void equals_moet_true_geven_als_alle_hoekpunten_gelijk_zijn() {
+		Driehoek drieHoek = new Driehoek(punt1, punt2, punt3);
+		Driehoek zelfdeDrieHoek = new Driehoek(zelfdeAlsPunt1, zelfdeAlsPunt2, zelfdeAlsPunt3);
+		assertTrue(drieHoek.equals(zelfdeDrieHoek));
+	}
 
 	@Test
 	public void testGetOmhullende_geeft_correcte_Omhullende() {
