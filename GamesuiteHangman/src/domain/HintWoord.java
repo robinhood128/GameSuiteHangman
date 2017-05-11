@@ -32,6 +32,7 @@ public class HintWoord {
 		char[] charArray = woord.toCharArray();
 		for (char h : charArray) {
 			HintLetter b = new HintLetter(h);
+			if (b.getLetter() == ' ') b.raad(' ');
 			hintletters.add(b);
 		}
 	}

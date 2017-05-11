@@ -28,9 +28,7 @@ public class WoordenLezer {
 			
 			while(scannerFile.hasNextLine())
 			{
-				Scanner scannerLijn = new Scanner(scannerFile.nextLine());
-				woorden.add(scannerLijn.next());
-				scannerLijn.close();
+				woorden.add(scannerFile.nextLine());
 			}
 			
 			scannerFile.close();

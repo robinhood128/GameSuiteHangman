@@ -16,7 +16,10 @@ public class Launcher {
 			WoordenLezer lezer = new WoordenLezer("hangman.txt");
 			
 			for (String woord : lezer.leesWoorden())
+			{
+				System.out.println(woord);
 				lijst.voegToe(woord);
+			}
 			
 			HangManUI hangmanUI = new HangManUI(speler, lijst);
 			hangmanUI.play();
