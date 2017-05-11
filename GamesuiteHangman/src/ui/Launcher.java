@@ -17,7 +17,6 @@ public class Launcher {
 			
 			for (String woord : lezer.leesWoorden())
 			{
-				System.out.println(woord);
 				lijst.voegToe(woord);
 			}
 			
