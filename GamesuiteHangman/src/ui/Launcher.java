@@ -1,5 +1,6 @@
 package ui;
 
+import db.AfbeeldingshintLezer;
 import db.WoordenLezer;
 import domain.*;
 
@@ -25,8 +26,16 @@ public class Launcher {
 			break;
 			
 		case "Pictionary":
-			PictionaryUI ui = new PictionaryUI(speler);
-			ui.showMenu();
+			PictionaryWoordenLijst lijst2 = new PictionaryWoordenLijst();
+			AfbeeldingshintLezer lezer2 = new AfbeeldingshintLezer("pictionary.txt");
+			
+			for (PictionaryWoordEnTekening woord : lezer2.leesTekeningen())
+			{
+				lijst2.voegToe(woord);
+			}
+			
+			PicSpelUI pictionary = new PicSpelUI(speler, lijst2);
+			pictionary.play();
 			break;
 		}
 	}
