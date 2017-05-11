@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import domain.Cirkel;
 import domain.Lijnstuk;
 import domain.Punt;
@@ -27,6 +30,8 @@ public class TekeningHangMan extends Tekening {
     Vorm armRechts = new Lijnstuk(new Punt(280, 200), new Punt(330, 170));
     Vorm handLinks = new Cirkel(new Punt(230, 170), 5);
     Vorm handRechts = new Cirkel(new Punt(330, 170), 5);
+    
+    Queue<Vorm> onzichtbaren;
 
     public TekeningHangMan(String naam) {
         super(naam);
@@ -34,19 +39,35 @@ public class TekeningHangMan extends Tekening {
         voegToe(galgStaaf);
         voegToe(hangbar);
         voegToe(koord);
-        voegToe(hoofd);
-        voegToe(oogLinks);
-        voegToe(oogRechts);
-        voegToe(neus);
-        voegToe(mond);
-        voegToe(lijf);
-        voegToe(beenLinks);
-        voegToe(beenRechts);
-        voegToe(voetLinks);
-        voegToe(voetRechts);
-        voegToe(armLinks);
-        voegToe(armRechts);
-        voegToe(handLinks);
-        voegToe(handRechts);
+        
+        onzichtbaren = new LinkedList<Vorm>();
+        onzichtbaren.add(hoofd);
+        onzichtbaren.add(oogLinks);
+        onzichtbaren.add(oogRechts);
+        onzichtbaren.add(neus);
+        onzichtbaren.add(mond);
+        onzichtbaren.add(lijf);
+        onzichtbaren.add(beenLinks);
+        onzichtbaren.add(beenRechts);
+        onzichtbaren.add(voetLinks);
+        onzichtbaren.add(voetRechts);
+        onzichtbaren.add(armLinks);
+        onzichtbaren.add(armRechts);
+        onzichtbaren.add(handLinks);
+        onzichtbaren.add(handRechts);
+    }
+    
+    public void zetVolgendeZichtbaar()
+    {
+    	if (onzichtbaren.size() > 0)
+    	{
+    		Vorm vorm = onzichtbaren.poll();
+    		voegToe(vorm);
+    	}
+    }
+    
+    public int getAantalOnzichtbaar()
+    {
+    	return onzichtbaren.size();
     }
 }

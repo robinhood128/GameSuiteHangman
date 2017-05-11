@@ -1,7 +1,5 @@
 package ui;
 
-import javax.swing.JOptionPane;
-
 import domain.*;
 
 public class PictionaryUI {

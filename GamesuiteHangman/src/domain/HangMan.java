@@ -6,15 +6,28 @@ public class HangMan
 	private TekeningHangMan tekening;
 	private WoordenLijst woordenlijst;
 	private HintWoord hintwoord;
-	private int teller;
 	
 	public HangMan(Speler speler, WoordenLijst woordenlijst)
 	{
-		teller = 0;
-		this.speler = speler;
+		setSpeler(speler);
+		setWoordenLijst(woordenlijst);
 		this.woordenlijst = woordenlijst;
 		tekening = new TekeningHangMan(speler.getNaam());
 		hintwoord = new HintWoord(this.woordenlijst.getRandomWoord());
+	}
+	
+	private void setSpeler(Speler speler)
+	{
+		if (speler == null)
+			throw new DomainException("Speler is null.");
+		this.speler = speler;
+	}
+	
+	private void setWoordenLijst(WoordenLijst woordenlijst)
+	{
+		if (woordenlijst == null || woordenlijst.getAantalWoorden() == 0)
+			throw new DomainException("Woordenlijst is leeg.");
+		this.woordenlijst = woordenlijst;
 	}
 	
 	public String getHint()
@@ -36,7 +49,7 @@ public class HangMan
 	{
 		if (!hintwoord.raad(letter))
 		{
-			teller += 1;	
+			tekening.zetVolgendeZichtbaar();
 		}
 	}
 	
@@ -47,7 +60,7 @@ public class HangMan
 	
 	public boolean isGameOver()
 	{
-		return teller >= 14;
+		return tekening.getAantalOnzichtbaar() <= 0;
 	}
 	
 	public boolean isGewonnen()
