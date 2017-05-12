@@ -13,9 +13,8 @@ public class PictionaryUI {
 	public Speler getSpeler() {
 		return speler;
 	}
-	
-	public void showTekening()
-	{
+
+	public void showTekening() {
 		GameHoofdScherm scherm = new GameHoofdScherm(speler.getNaam(), tekening);
 		scherm.setVisible(true);
 		scherm.teken();
@@ -23,17 +22,25 @@ public class PictionaryUI {
 
 	public void showMenu() {
 		tekening = new Tekening(InputDialogUtils.getInputString("Geef de naam van je tekening"));
-		while(showNextCommand());
+		while (showNextCommand())
+			;
 	}
 
 	public boolean showNextCommand() {
-		switch (InputDialogUtils.getInputInteger("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen")) {
+		switch (InputDialogUtils
+				.getInputInteger("Wat wil je doen:\n\n1. Vorm maken\n2. Tekening tonen\n\n0. Stoppen")) {
 		case 1:
-			tekening.voegToe(showVormMenu());
+			try {
+				tekening.voegToe(showVormMenu());
+			}
+
+			catch (UIException e) {
+
+			}
 			break;
 		case 2:
 			showTekening();
-			//JOptionPane.showMessageDialog(null, tekening.toString());
+			// JOptionPane.showMessageDialog(null, tekening.toString());
 			return false;
 		case 0:
 			return false;
