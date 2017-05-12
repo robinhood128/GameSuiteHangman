@@ -66,6 +66,7 @@ public class HintWoord {
 		return isGeraden;
 	}
 
+	@Override
 	public String toString() {
 		// dummy
 		String woordje = "";

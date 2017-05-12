@@ -61,6 +61,7 @@ public class Cirkel extends Vorm {
 		return resultaat;
 	}
 
+	@Override
 	public Omhullende getOmhullende() {
 		Punt midden = getMiddelPunt();
 		int x = midden.getX() - getRadius();
